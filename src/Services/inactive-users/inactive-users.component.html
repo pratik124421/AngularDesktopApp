@@ -1,0 +1,7 @@
+<div class="container Inactive">
+    <h4>Inactive Users</h4>
+    <hr/>
+    <div class="inactivelist" *ngFor="let user of inactiveuser">
+        <p>{{user}} | <a style="cursor: pointer;" (click)="settoactive(user)">SetTo Active</a></p>
+    </div>
+</div>

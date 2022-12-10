@@ -1,0 +1,30 @@
+.success {
+    background-color: aquamarine;
+}
+
+.danger{
+    background-color: lightpink;
+}
+
+.center{
+    text-align: center;
+}
+
+.cancel{
+    transform: rotate(45deg);
+    font-size: 20px;
+    position: relative;
+    bottom: 2px;
+}
+
+.errormsg{
+    margin-left: 400px;
+}
+
+span{
+    padding: 2px 12px 2px 12px;
+}
+
+.row{
+    height: 25px;
+}

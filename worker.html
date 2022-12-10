@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.7.570/build/pdf.min.js"></script>
+
+    </head>
+<body>
+
+<!-- really dirty! this is just a test drive ;) -->
+<!-- <h2>hi</h2> -->
+<span>Page: <span id="page_num"><span id="page_count"></span></span>
+<div id="pdf_canvas"></div>
+
+
+<script>
+function renderPDF(url) {
+
+    var pdfDoc = null
+    pageNum = 1
+    pageNumPending=null
+    scale=1.5
+    canvasdiv = document.getElementById("pdf_canvas")
+
+
+    function renderPage(page){
+        
+            var viewport = page.getViewport({scale:scale})
+
+            var canvas = document.createElement('canvas');
+            ctx=canvas.getContext("2d")
+
+
+            canvas.height = viewport.height
+            canvas.width=viewport.width
+
+            var renderContext = {
+                canvasContext:ctx,
+                viewport:viewport
+            }
+
+            canvasdiv.appendChild(canvas);
+
+
+            var renderTask = page.render(renderContext)
+
+        // document.getElementById("page_num").turnContent = num
+    }
+
+
+    function renderPages(){
+        for(var num = 1; num <= pdfDoc.numPages; num++){
+            pdfDoc.getPage(num).then(renderPage);
+        }
+            console.log(window.electronAPI);
+            window.electronAPI.startprint("https://www.electronjs.org/docs/latest/api/web-contents#contentsprinttopdfoptions-callback")
+
+    }
+    
+
+    // PDFJS.disableWorker = true;
+    pdfjsLib.getDocument(url).promise.then((doc)=>{
+        pdfDoc = doc
+        document.getElementById("page_count").turnContent = doc.numPages
+        console.log("pages::",doc.numPages)
+        renderPages()
+    });
+}
+   
+</script> 
+
+
+<script type="text/javascript">
+renderPDF('./data.pdf');
+</script>  
+
+</body>
+</html>

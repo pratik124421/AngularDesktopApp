@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="container">
+<app-server (serveradded)="onNamesAdded($event)"></app-server>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-serverlist *ngFor="let data of names" [item]="data">
+            <p class="list-group-item-text">{{data}}</p>
+        </app-serverlist>
+    </div>
+</div>
+</div>

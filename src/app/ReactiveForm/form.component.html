@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <form [formGroup]="FormGroup" (ngSubmit)="onSubmit()">
+            <div class="row" formGroupName="UserData">
+                <div class="col-sm-8 form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" name="username" formControlName="username">
+                <span *ngIf="FormGroup.get('UserData.username').invalid && FormGroup.get('UserData.username').touched">
+                    <p *ngIf="FormGroup.get('UserData.username').errors['required']" style="color:red">Username is mandatory..</p>
+                    <p *ngIf="FormGroup.get('UserData.username').errors['notAllowed']"style="color:red">Invalid Username</p>
+                </span>
+                </div>
+
+                <div class="col-sm-8 form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" class="form-control" name="email" formControlName="email">
+                    <p *ngIf="FormGroup.get('UserData.email').invalid && FormGroup.get('UserData.email').touched"style="color:red">Email is mandatory..</p>
+                </div>
+            </div>
+            
+            <!-- *ngIf="ref.controls.email && ref.controls.email.invalid && ref.controls.email.touched" -->
+
+
+            
+        <!-- <div class="row">
+            <div class="col-sm-8 form-group">
+                <label for="select">Select</label>
+                <select id="select" class="form-control" name="select" ngModel>
+                    <option value="Ahm">Ahmedabad</option>
+                    <option value="Gandhinagar">Gandhinagar</option>
+                </select>
+            </div>
+        </div> -->
+            
+        <div class="radio" *ngFor="let gender of genders">
+            <label>
+                <input type="radio" name="gender"[value]="gender" formControlName="gender">
+                {{gender}}
+            </label>
+        </div>
+
+        <div formArrayName="hobbies">
+            <button type="button" class="btn btn-primary" (click)="onAddHobbies()">Add Hobbbies</button>
+
+        <div *ngFor="let control of getControl();let i=index">
+            <input type="text" class="form-control" [formControlName]="i">
+        </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+<hr>
+<hr>
+
+
+</div>

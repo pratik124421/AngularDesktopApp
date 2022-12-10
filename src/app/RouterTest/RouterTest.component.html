@@ -1,0 +1,11 @@
+<a [routerLink]="['/testing',100,'vip']" routerLinkActive="active">vip 100</a>
+<hr>
+<a [routerLinkActive]="'active'" [routerLink]="['/testing',101,'psp']">101 psp</a>
+<hr>
+<p>name of user {{user.name}} </p>
+<p>id of user {{user.id}}</p>
+<p>Query params {{user.allow}}</p>
+<a [routerLink]="['/testing',1,'ditya']" [queryParams]="{allow:true}" fragment="loading">link with query params and fragment</a>
+<hr>
+<a (click)="incrementid()">INCREMENT ID</a>
+<!-- <a [routerLink]="['']">Child Router</a> -->

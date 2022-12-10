@@ -1,0 +1,8 @@
+<div class="row" [class]="errormsg.type">
+       <span class="pull-left">
+            <p class="errormsg">{{errormsg.msg}}</p>
+        </span>
+        <span class="pull-right">
+            <p class="cancel" crosshover (click)="removeerror()">+</p>
+        </span>
+</div>

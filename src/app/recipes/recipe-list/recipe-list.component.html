@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="form=!form">
+            New Recipe
+        </button>
+    </div>
+</div>
+
+<div class="row" *ngIf="form">
+    <div class="col-xs-12">
+        <br>
+       <input type="text" class="form-control" placeholder="Item Name" [(ngModel)]="name"><br>
+       <input type="text" class="form-control" placeholder="Description" [(ngModel)]="description"><br>
+       <input type="text" class="form-control" placeholder="Image Url" [(ngModel)]="imageurl"><br>
+       <button class="btn btn-primary" (click)="AddItems()">Add</button>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <app-recipe-item *ngFor="let recipe of recipes" [recipedata]="recipe"></app-recipe-item>
+</div>
+

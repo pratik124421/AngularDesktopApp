@@ -1,0 +1,12 @@
+.cross{
+    transform: rotate(45deg);
+    border-radius: 50px;
+    float: left;
+    position: relative;
+    left: 85%;
+    bottom: 20px;
+    width: auto;
+    height: auto;
+    border: none;
+    background-color: white;
+}

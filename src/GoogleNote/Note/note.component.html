@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-md-12">
+        <app-addnote (note) = addnotes($event) (error)="erroroccured($event)"></app-addnote>
+    </div>
+</div>
+
+<div class="maindiv">
+    <app-notelist *ngFor="let elem of NoteList" [noteobj]="elem" (deleteelement)="removeelem($event)"></app-notelist>
+</div>

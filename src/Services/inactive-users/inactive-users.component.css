@@ -1,0 +1,15 @@
+.Inactive{
+    height: auto;
+    width: auto;
+    background-color: rgb(227, 236, 239);
+}
+
+hr{
+    border-top: 1px solid black;
+}
+
+.inactivelist{
+    height: auto;
+    width: auto;
+    
+}

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <form (ngSubmit)="submit(ref)" #ref="ngForm">
+            <p *ngIf="userData.invalid && userData.touched" style="color: red;">Please fill this user data</p>
+            <div class="row" ngModelGroup="userData" #userData="ngModelGroup">
+                <div class="col-sm-8 form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" name="username" ngModel required>
+                </div>
+                <div class="col-sm-8 form-group">
+                <div class="btn btn-primary" (click)="suggestName()">Suggest Username</div>
+                </div>
+                <div class="col-sm-8 form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" class="form-control" name="email" ngModel required email #email="ngModel">
+                    <p *ngIf="email.invalid && email.touched" style="color: red;">Please fill this field</p>
+                </div>
+            </div>
+            
+            <!-- *ngIf="ref.controls.email && ref.controls.email.invalid && ref.controls.email.touched" -->
+
+
+            
+        <div class="row">
+            <div class="col-sm-8 form-group">
+                <label for="select">Select</label>
+                <select [ngModel]="defaultSelected" id="select" class="form-control" name="select" ngModel>
+                    <option value="Ahm">Ahmedabad</option>
+                    <option value="Gandhinagar">Gandhinagar</option>
+                </select>
+            </div>
+        </div>
+            
+        <div class="radio" *ngFor="let gender of genders">
+            <label>
+                <input type="radio" name="gender" [ngModel]="'male'" [value]="gender" required>
+                {{gender}}
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="ref.invalid">Submit</button>
+        </form>
+    </div>
+</div>
+<hr>
+<div class="row" *ngIf="submited">
+<p>Username: {{UserData.username}}</p>
+<p>Email : {{UserData.email}}</p>
+<p>Location : {{UserData.location}}</p>
+<p>Gender : {{UserData.gender}} </p>
+
+</div>
+<hr>
+<div class="row">
+
+<pre>
+Submit - 
+    triggers a post call to browser URL/server. 
+Ngsubmit- 
+    calls local angular component to do something useful like form validation BEFORE postback to browser url/server.
+</pre>
+
+
+
+</div>
+
+</div>

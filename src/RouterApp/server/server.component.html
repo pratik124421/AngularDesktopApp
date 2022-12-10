@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="pull-left col-xs-7">
+            <app-serverlist  *ngFor="let ser of serverlist" [server]="ser"></app-serverlist>
+        </div>
+
+        <div class="pull-right col-xs-5">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
